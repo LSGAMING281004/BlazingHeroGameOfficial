@@ -1,3 +1,8 @@
 <resources>
-    <string name="app_name">Blazing Hero Game Official</string>
+    <string name="app_name">Blazing Hero</string>
+    <string name="account_info">account info</string>
+    <string name="play_with_bot">Play with Bot</string>
+    <string name="play_offline">Play Offline</string>
+    <string name="play_online">Play Online</string>
+    <string name="start">Start</string>
 </resources>

@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".OfflineGamePlay">
+
+    <View
+        android:id="@+id/blue_header"
+        android:layout_width="180dp"
+        android:layout_height="40dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_gravity="top"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="0dp"
+        android:background="@drawable/blue_bg" />
+
+
+    <View
+        android:layout_width="150dp"
+        android:layout_height="100dp"
+        android:id="@+id/blueplayer1"
+        android:background="@drawable/blue_bg"
+        android:layout_margin="10dp"
+        android:layout_below="@+id/blue_header"/>
+    <View
+        android:layout_width="150dp"
+        android:layout_height="100dp"
+        android:id="@+id/blueplayer2"
+        android:background="@drawable/blue_bg"
+        android:layout_margin="10dp"
+        android:layout_below="@id/blueplayer1"
+        />
+    <View
+        android:layout_width="150dp"
+        android:layout_height="100dp"
+        android:id="@+id/blueplayer3"
+        android:background="@drawable/blue_bg"
+        android:layout_marginTop="100dp"
+        android:layout_margin="10dp"
+        android:layout_below="@id/blueplayer2"
+        />
+    <View
+        android:layout_width="150dp"
+        android:layout_height="100dp"
+        android:id="@+id/blueplayer4"
+        android:background="@drawable/blue_bg"
+        android:layout_margin="10dp"
+        android:layout_below="@id/blueplayer3"
+        />
+    <View
+        android:layout_width="150dp"
+        android:layout_height="100dp"
+        android:id="@+id/blueplayer5"
+        android:background="@drawable/blue_bg"
+        android:layout_margin="10dp"
+        android:layout_below="@id/blueplayer4"
+        />
+
+    <View
+        android:id="@+id/red_header"
+        android:layout_width="180dp"
+        android:layout_height="40dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_gravity="top"
+        android:layout_marginStart="1dp"
+        android:layout_marginTop="0dp"
+        android:layout_marginEnd="0dp"
+        android:layout_toEndOf="@+id/blue_header"
+        android:background="@drawable/red_bg" />
+
+    <View
+        android:id="@+id/redplayer1"
+        android:layout_width="150dp"
+        android:layout_height="100dp"
+        android:layout_below="@id/red_header"
+        android:layout_alignParentEnd="true"
+        android:layout_margin="10dp"
+        android:layout_marginEnd="251dp"
+        android:background="@drawable/red_bg" />
+    <View
+        android:id="@+id/redplayer2"
+        android:layout_width="150dp"
+        android:layout_height="100dp"
+        android:layout_below="@id/redplayer1"
+        android:layout_alignParentEnd="true"
+        android:layout_margin="10dp"
+        android:layout_marginEnd="251dp"
+        android:background="@drawable/red_bg" />
+    <View
+        android:id="@+id/redplayer3"
+        android:layout_width="150dp"
+        android:layout_height="100dp"
+        android:layout_below="@id/redplayer2"
+        android:layout_alignParentEnd="true"
+        android:layout_margin="10dp"
+        android:layout_marginEnd="251dp"
+        android:background="@drawable/red_bg" />
+    <View
+        android:id="@+id/redplayer4"
+        android:layout_width="150dp"
+        android:layout_height="100dp"
+        android:layout_below="@id/redplayer3"
+        android:layout_alignParentEnd="true"
+        android:layout_margin="10dp"
+        android:layout_marginEnd="251dp"
+        android:background="@drawable/red_bg" />
+    <View
+        android:id="@+id/redplayer5"
+        android:layout_width="150dp"
+        android:layout_height="100dp"
+        android:layout_below="@id/redplayer4"
+        android:layout_alignParentEnd="true"
+        android:layout_margin="10dp"
+        android:layout_marginEnd="251dp"
+        android:background="@drawable/red_bg" />
+
+
+    <ImageView
+        android:id="@+id/blue_book"
+        android:layout_width="wrap_content"
+        android:layout_height="80dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="2dp"
+        android:layout_marginEnd="-2dp"
+        android:layout_marginBottom="1dp"
+        android:importantForAccessibility="no"
+        android:src="@drawable/blue_book"
+        tools:ignore="ImageContrastCheck" />
+
+    <ImageView
+        android:id="@+id/red_book"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="2dp"
+        android:importantForAccessibility="no"
+        android:src="@drawable/red_book"
+        android:layout_centerHorizontal="true"
+        android:visibility="gone" />
+
+    <TextView
+        android:id="@+id/blue_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/blueplayer5"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="37dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginBottom="18dp"
+        android:text="Blue Number"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/red_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/redplayer5"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="37dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginBottom="18dp"
+        android:text="Red Number"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+
+</RelativeLayout>
