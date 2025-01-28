@@ -2,6 +2,7 @@ package com.lsgaming.app1.blazingherogameofficial;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -32,6 +33,14 @@ public class MainActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+
+        MediaPlayer mp = MediaPlayer.create(this,R.raw.pinksoldiers);
+        MediaPlayer mediaPlayer = MediaPlayer.create(this,R.raw.buttonclick);
+        mp.setVolume(0.1f, 0.1f);
+        mediaPlayer.setVolume(0.1f,0.1f);
+        mp.start();
+
+
         //Toolbar menu setup
         toolbar = findViewById(R.id.tb);
         setSupportActionBar(toolbar);
@@ -40,6 +49,7 @@ public class MainActivity extends AppCompatActivity {
 
         play_offline = findViewById(R.id.play_offline);
         play_offline.setOnClickListener(v -> {
+            mediaPlayer.start();
             startActivity(new Intent(this, OfflineGamePlay.class));
         });
 

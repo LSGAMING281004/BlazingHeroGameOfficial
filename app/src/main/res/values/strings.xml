@@ -5,4 +5,7 @@
     <string name="play_offline">Play Offline</string>
     <string name="play_online">Play Online</string>
     <string name="start">Start</string>
+    <string name="red_number">Red Number</string>
+    <string name="blue_number">Blue Number</string>
+    <string name="attack_enemy">Attack Enemy</string>
 </resources>
