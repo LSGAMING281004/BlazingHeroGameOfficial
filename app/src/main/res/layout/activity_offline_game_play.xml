@@ -7,9 +7,10 @@
     android:layout_height="match_parent"
     tools:context=".OfflineGamePlay">
 
+    <!--This is blue side background view-->
     <View
         android:id="@+id/blue_header"
-        android:layout_width="180dp"
+        android:layout_width="200dp"
         android:layout_height="40dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
@@ -60,9 +61,10 @@
         android:layout_below="@id/blueplayer4"
         />
 
+    <!--This is red side background view-->
     <View
         android:id="@+id/red_header"
-        android:layout_width="180dp"
+        android:layout_width="200dp"
         android:layout_height="40dp"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
@@ -70,7 +72,6 @@
         android:layout_marginStart="1dp"
         android:layout_marginTop="0dp"
         android:layout_marginEnd="0dp"
-        android:layout_toEndOf="@+id/blue_header"
         android:background="@drawable/red_bg" />
 
     <View
@@ -119,7 +120,7 @@
         android:layout_marginEnd="251dp"
         android:background="@drawable/red_bg" />
 
-
+    <!--This is book view-->
     <ImageView
         android:id="@+id/blue_book"
         android:layout_width="wrap_content"
@@ -148,6 +149,7 @@
         android:layout_centerHorizontal="true"
         android:visibility="gone" />
 
+    <!--This is random number blue and red side numbers view-->
     <TextView
         android:id="@+id/blue_tv"
         android:layout_width="wrap_content"
@@ -157,7 +159,7 @@
         android:layout_marginTop="37dp"
         android:layout_marginStart="30dp"
         android:layout_marginBottom="18dp"
-        android:text="Blue Number"
+        android:text="@string/blue_number"
         android:textColor="@color/black"
         android:textSize="20sp"
         android:textStyle="bold" />
@@ -172,10 +174,738 @@
         android:layout_marginTop="37dp"
         android:layout_marginEnd="30dp"
         android:layout_marginBottom="18dp"
-        android:text="Red Number"
+        android:text="@string/red_number"
         android:textColor="@color/black"
         android:textSize="20sp"
         android:textStyle="bold" />
+
+    <!--Blue player side view head images-->
+    <ImageView
+        android:id="@+id/bh1"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_alignTop="@+id/blueplayer1"
+        android:layout_alignEnd="@+id/blueplayer1"
+        android:layout_alignBottom="@+id/blueplayer1"
+        android:layout_alignStart="@+id/blueplayer1"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="0dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginBottom="0dp"
+        android:src="@drawable/head"
+        tools:ignore="ContentDescription" />
+
+    <ImageView
+        android:id="@+id/bh2"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_alignStart="@+id/blueplayer2"
+        android:layout_alignTop="@+id/blueplayer2"
+        android:layout_alignEnd="@+id/blueplayer2"
+        android:layout_alignBottom="@+id/blueplayer2"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="0dp"
+        android:layout_marginBottom="0dp"
+        android:layout_marginEnd="30dp"
+        android:src="@drawable/head"
+        tools:ignore="ContentDescription" />
+    <ImageView
+        android:id="@+id/bh3"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_alignStart="@+id/blueplayer3"
+        android:layout_alignTop="@+id/blueplayer3"
+        android:layout_alignEnd="@+id/blueplayer3"
+        android:layout_alignBottom="@+id/blueplayer3"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="0dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginBottom="0dp"
+        android:src="@drawable/head"
+        tools:ignore="ContentDescription" />
+
+    <ImageView
+        android:id="@+id/bh4"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_alignStart="@+id/blueplayer4"
+        android:layout_alignTop="@+id/blueplayer4"
+        android:layout_alignEnd="@+id/blueplayer4"
+        android:layout_alignBottom="@+id/blueplayer4"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="0dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginBottom="0dp"
+        android:src="@drawable/head"
+        tools:ignore="ContentDescription" />
+
+    <ImageView
+        android:id="@+id/bh5"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_alignStart="@+id/blueplayer5"
+        android:layout_alignTop="@+id/blueplayer5"
+        android:layout_alignEnd="@+id/blueplayer5"
+        android:layout_alignBottom="@+id/blueplayer5"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="-0dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginBottom="0dp"
+        android:src="@drawable/head"
+        tools:ignore="ContentDescription" />
+
+    <!--Red player side view head images-->
+    <ImageView
+        android:id="@+id/rh1"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_alignStart="@+id/redplayer1"
+        android:layout_alignTop="@+id/redplayer1"
+        android:layout_alignEnd="@+id/redplayer1"
+        android:layout_alignBottom="@+id/redplayer1"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="-0dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginBottom="0dp"
+        android:src="@drawable/head"
+        tools:ignore="ContentDescription" />
+
+    <ImageView
+        android:id="@+id/rh2"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_alignStart="@+id/redplayer2"
+        android:layout_alignTop="@+id/redplayer2"
+        android:layout_alignEnd="@+id/redplayer2"
+        android:layout_alignBottom="@+id/redplayer2"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="-0dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginBottom="0dp"
+        android:src="@drawable/head"
+        tools:ignore="ContentDescription" />
+    <ImageView
+        android:id="@+id/rh3"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_alignStart="@+id/redplayer3"
+        android:layout_alignTop="@+id/redplayer3"
+        android:layout_alignEnd="@+id/redplayer3"
+        android:layout_alignBottom="@+id/redplayer3"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="-0dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginBottom="0dp"
+        android:src="@drawable/head"
+        tools:ignore="ContentDescription" />
+    <ImageView
+        android:id="@+id/rh4"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_alignStart="@+id/redplayer4"
+        android:layout_alignTop="@+id/redplayer4"
+        android:layout_alignEnd="@+id/redplayer4"
+        android:layout_alignBottom="@+id/redplayer4"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="-0dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginBottom="0dp"
+        android:src="@drawable/head"
+        tools:ignore="ContentDescription" />
+    <ImageView
+        android:id="@+id/rh5"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_alignStart="@+id/redplayer5"
+        android:layout_alignTop="@+id/redplayer5"
+        android:layout_alignEnd="@+id/redplayer5"
+        android:layout_alignBottom="@+id/redplayer5"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="-0dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginBottom="0dp"
+        android:src="@drawable/head"
+        tools:ignore="ContentDescription" />
+
+    <!--Blue player side view body images-->
+    <ImageView
+        android:id="@+id/bb1"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_alignTop="@+id/blueplayer1"
+        android:layout_alignEnd="@+id/blueplayer1"
+        android:layout_alignBottom="@+id/blueplayer1"
+        android:layout_alignStart="@+id/blueplayer1"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="-0dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginBottom="0dp"
+        android:src="@drawable/body"
+        tools:ignore="ContentDescription" />
+
+    <ImageView
+        android:id="@+id/bb2"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_alignTop="@+id/blueplayer2"
+        android:layout_alignEnd="@+id/blueplayer2"
+        android:layout_alignBottom="@+id/blueplayer2"
+        android:layout_alignStart="@+id/blueplayer2"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="-0dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginBottom="0dp"
+        android:src="@drawable/body"
+        tools:ignore="ContentDescription" />
+    <ImageView
+        android:id="@+id/bb3"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_alignTop="@+id/blueplayer3"
+        android:layout_alignEnd="@+id/blueplayer3"
+        android:layout_alignBottom="@+id/blueplayer3"
+        android:layout_alignStart="@+id/blueplayer3"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="-0dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginBottom="0dp"
+        android:src="@drawable/body"
+        tools:ignore="ContentDescription" />
+    <ImageView
+        android:id="@+id/bb4"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_alignTop="@+id/blueplayer4"
+        android:layout_alignEnd="@+id/blueplayer4"
+        android:layout_alignBottom="@+id/blueplayer4"
+        android:layout_alignStart="@+id/blueplayer4"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="-0dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginBottom="0dp"
+        android:src="@drawable/body"
+        tools:ignore="ContentDescription" />
+    <ImageView
+        android:id="@+id/bb5"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_alignTop="@+id/blueplayer5"
+        android:layout_alignEnd="@+id/blueplayer5"
+        android:layout_alignBottom="@+id/blueplayer5"
+        android:layout_alignStart="@+id/blueplayer5"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="-0dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginBottom="0dp"
+        android:src="@drawable/body"
+        tools:ignore="ContentDescription" />
+
+    <!--Red player side view body images-->
+
+    <ImageView
+        android:id="@+id/rb1"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_alignStart="@+id/redplayer1"
+        android:layout_alignTop="@+id/redplayer1"
+        android:layout_alignEnd="@+id/redplayer1"
+        android:layout_alignBottom="@+id/redplayer1"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="-0dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginBottom="0dp"
+        android:src="@drawable/body"
+        tools:ignore="ContentDescription" />
+    <ImageView
+        android:id="@+id/rb2"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_alignStart="@+id/redplayer2"
+        android:layout_alignTop="@+id/redplayer2"
+        android:layout_alignEnd="@+id/redplayer2"
+        android:layout_alignBottom="@+id/redplayer2"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="-0dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginBottom="0dp"
+        android:src="@drawable/body"
+        tools:ignore="ContentDescription" />
+    <ImageView
+        android:id="@+id/rb3"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_alignStart="@+id/redplayer3"
+        android:layout_alignTop="@+id/redplayer3"
+        android:layout_alignEnd="@+id/redplayer3"
+        android:layout_alignBottom="@+id/redplayer3"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="-0dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginBottom="0dp"
+        android:src="@drawable/body"
+        tools:ignore="ContentDescription" />
+    <ImageView
+        android:id="@+id/rb4"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_alignStart="@+id/redplayer4"
+        android:layout_alignTop="@+id/redplayer4"
+        android:layout_alignEnd="@+id/redplayer4"
+        android:layout_alignBottom="@+id/redplayer4"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="-0dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginBottom="0dp"
+        android:src="@drawable/body"
+        tools:ignore="ContentDescription" />
+    <ImageView
+        android:id="@+id/rb5"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_alignStart="@+id/redplayer5"
+        android:layout_alignTop="@+id/redplayer5"
+        android:layout_alignEnd="@+id/redplayer5"
+        android:layout_alignBottom="@+id/redplayer5"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="-0dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginBottom="0dp"
+        android:src="@drawable/body"
+        tools:ignore="ContentDescription" />
+
+    <!--Blue player side view legs images-->
+    <ImageView
+        android:id="@+id/bl1"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_alignStart="@+id/blueplayer1"
+        android:layout_alignTop="@+id/blueplayer1"
+        android:layout_alignEnd="@+id/blueplayer1"
+        android:layout_alignBottom="@+id/blueplayer1"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="-0dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginBottom="0dp"
+        android:src="@drawable/hand"
+        tools:ignore="ContentDescription" />
+    <ImageView
+        android:id="@+id/bl2"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_alignStart="@+id/blueplayer2"
+        android:layout_alignTop="@+id/blueplayer2"
+        android:layout_alignEnd="@+id/blueplayer2"
+        android:layout_alignBottom="@+id/blueplayer2"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="-0dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginBottom="0dp"
+        android:src="@drawable/hand"
+        tools:ignore="ContentDescription" />
+    <ImageView
+        android:id="@+id/bl3"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_alignStart="@+id/blueplayer3"
+        android:layout_alignTop="@+id/blueplayer3"
+        android:layout_alignEnd="@+id/blueplayer3"
+        android:layout_alignBottom="@+id/blueplayer3"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="-0dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginBottom="0dp"
+        android:src="@drawable/hand"
+        tools:ignore="ContentDescription" />
+    <ImageView
+        android:id="@+id/bl4"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_alignStart="@+id/blueplayer4"
+        android:layout_alignTop="@+id/blueplayer4"
+        android:layout_alignEnd="@+id/blueplayer4"
+        android:layout_alignBottom="@+id/blueplayer4"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="-0dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginBottom="0dp"
+        android:src="@drawable/hand"
+        tools:ignore="ContentDescription" />
+    <ImageView
+        android:id="@+id/bl5"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_alignStart="@+id/blueplayer5"
+        android:layout_alignTop="@+id/blueplayer5"
+        android:layout_alignEnd="@+id/blueplayer5"
+        android:layout_alignBottom="@+id/blueplayer5"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="-0dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginBottom="0dp"
+        android:src="@drawable/hand"
+        tools:ignore="ContentDescription" />
+
+    <!--Red player side view legs images-->
+
+    <ImageView
+        android:id="@+id/rl1"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_alignStart="@+id/redplayer1"
+        android:layout_alignTop="@+id/redplayer1"
+        android:layout_alignEnd="@+id/redplayer1"
+        android:layout_alignBottom="@+id/redplayer1"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="-0dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginBottom="0dp"
+        android:src="@drawable/hand"
+        tools:ignore="ContentDescription" />
+    <ImageView
+        android:id="@+id/rl2"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_alignStart="@+id/redplayer2"
+        android:layout_alignTop="@+id/redplayer2"
+        android:layout_alignEnd="@+id/redplayer2"
+        android:layout_alignBottom="@+id/redplayer2"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="-0dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginBottom="0dp"
+        android:src="@drawable/hand"
+        tools:ignore="ContentDescription" />
+    <ImageView
+        android:id="@+id/rl3"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_alignStart="@+id/redplayer3"
+        android:layout_alignTop="@+id/redplayer3"
+        android:layout_alignEnd="@+id/redplayer3"
+        android:layout_alignBottom="@+id/redplayer3"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="-0dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginBottom="0dp"
+        android:src="@drawable/hand"
+        tools:ignore="ContentDescription" />
+    <ImageView
+        android:id="@+id/rl4"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_alignStart="@+id/redplayer4"
+        android:layout_alignTop="@+id/redplayer4"
+        android:layout_alignEnd="@+id/redplayer4"
+        android:layout_alignBottom="@+id/redplayer4"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="-0dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginBottom="0dp"
+        android:src="@drawable/hand"
+        tools:ignore="ContentDescription" />
+    <ImageView
+        android:id="@+id/rl5"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_alignStart="@+id/redplayer5"
+        android:layout_alignTop="@+id/redplayer5"
+        android:layout_alignEnd="@+id/redplayer5"
+        android:layout_alignBottom="@+id/redplayer5"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="-0dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginBottom="0dp"
+        android:src="@drawable/hand"
+        tools:ignore="ContentDescription" />
+
+    <!--Blue player side view full body images-->
+    <ImageView
+        android:id="@+id/bf1"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_alignStart="@+id/blueplayer1"
+        android:layout_alignTop="@+id/blueplayer1"
+        android:layout_alignEnd="@+id/blueplayer1"
+        android:layout_alignBottom="@+id/blueplayer1"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="-0dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginBottom="0dp"
+        android:src="@drawable/emojipng"
+        tools:ignore="ContentDescription" />
+    <ImageView
+        android:id="@+id/bf2"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_alignStart="@+id/blueplayer2"
+        android:layout_alignTop="@+id/blueplayer2"
+        android:layout_alignEnd="@+id/blueplayer2"
+        android:layout_alignBottom="@+id/blueplayer2"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="-0dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginBottom="0dp"
+        android:src="@drawable/emojipng"
+        tools:ignore="ContentDescription" />
+    <ImageView
+        android:id="@+id/bf3"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_alignStart="@+id/blueplayer3"
+        android:layout_alignTop="@+id/blueplayer3"
+        android:layout_alignEnd="@+id/blueplayer3"
+        android:layout_alignBottom="@+id/blueplayer3"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="-0dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginBottom="0dp"
+        android:src="@drawable/emojipng"
+        tools:ignore="ContentDescription" />
+    <ImageView
+        android:id="@+id/bf4"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_alignStart="@+id/blueplayer4"
+        android:layout_alignTop="@+id/blueplayer4"
+        android:layout_alignEnd="@+id/blueplayer4"
+        android:layout_alignBottom="@+id/blueplayer4"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="-0dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginBottom="0dp"
+        android:src="@drawable/emojipng"
+        tools:ignore="ContentDescription" />
+    <ImageView
+        android:id="@+id/bf5"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_alignStart="@+id/blueplayer5"
+        android:layout_alignTop="@+id/blueplayer5"
+        android:layout_alignEnd="@+id/blueplayer5"
+        android:layout_alignBottom="@+id/blueplayer5"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="-0dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginBottom="0dp"
+        android:src="@drawable/emojipng"
+        tools:ignore="ContentDescription" />
+
+    <!--Red player side view full body images-->
+    <ImageView
+        android:id="@+id/rf1"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_alignStart="@+id/redplayer1"
+        android:layout_alignTop="@+id/redplayer1"
+        android:layout_alignEnd="@+id/redplayer1"
+        android:layout_alignBottom="@+id/redplayer1"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="-0dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginBottom="0dp"
+        android:src="@drawable/emojipng"
+        tools:ignore="ContentDescription" />
+    <ImageView
+        android:id="@+id/rf2"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_alignStart="@+id/redplayer2"
+        android:layout_alignTop="@+id/redplayer2"
+        android:layout_alignEnd="@+id/redplayer2"
+        android:layout_alignBottom="@+id/redplayer2"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="-0dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginBottom="0dp"
+        android:src="@drawable/emojipng"
+        tools:ignore="ContentDescription" />
+    <ImageView
+        android:id="@+id/rf3"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_alignStart="@+id/redplayer3"
+        android:layout_alignTop="@+id/redplayer3"
+        android:layout_alignEnd="@+id/redplayer3"
+        android:layout_alignBottom="@+id/redplayer3"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="-0dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginBottom="0dp"
+        android:src="@drawable/emojipng"
+        tools:ignore="ContentDescription" />
+    <ImageView
+        android:id="@+id/rf4"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_alignStart="@+id/redplayer4"
+        android:layout_alignTop="@+id/redplayer4"
+        android:layout_alignEnd="@+id/redplayer4"
+        android:layout_alignBottom="@+id/redplayer4"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="-0dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginBottom="0dp"
+        android:src="@drawable/emojipng"
+        tools:ignore="ContentDescription" />
+    <ImageView
+        android:id="@+id/rf5"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_alignStart="@+id/redplayer5"
+        android:layout_alignTop="@+id/redplayer5"
+        android:layout_alignEnd="@+id/redplayer5"
+        android:layout_alignBottom="@+id/redplayer5"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="0dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginBottom="0dp"
+        android:src="@drawable/emojipng"
+        tools:ignore="ContentDescription" />
+
+    <!--Blue player side view guns images-->
+
+    <ImageView
+        android:id="@+id/bg1"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_alignStart="@+id/blueplayer1"
+        android:layout_alignTop="@+id/blueplayer1"
+        android:layout_alignEnd="@+id/blueplayer1"
+        android:layout_alignBottom="@+id/blueplayer1"
+        android:layout_marginStart="33dp"
+        android:layout_marginTop="22dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginBottom="0dp"
+        android:src="@drawable/gunrb"
+        tools:ignore="ContentDescription" />
+    <ImageView
+        android:id="@+id/bg2"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_alignStart="@+id/blueplayer2"
+        android:layout_alignTop="@+id/blueplayer2"
+        android:layout_alignEnd="@+id/blueplayer2"
+        android:layout_alignBottom="@+id/blueplayer2"
+        android:layout_marginStart="33dp"
+        android:layout_marginTop="22dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginBottom="0dp"
+        android:src="@drawable/gunrb"
+        tools:ignore="ContentDescription" />
+    <ImageView
+        android:id="@+id/bg3"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_alignStart="@+id/blueplayer3"
+        android:layout_alignTop="@+id/blueplayer3"
+        android:layout_alignEnd="@+id/blueplayer3"
+        android:layout_alignBottom="@+id/blueplayer3"
+        android:layout_marginStart="33dp"
+        android:layout_marginTop="22dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginBottom="0dp"
+        android:src="@drawable/gunrb"
+        tools:ignore="ContentDescription" />
+    <ImageView
+        android:id="@+id/bg4"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_alignStart="@+id/blueplayer4"
+        android:layout_alignTop="@+id/blueplayer4"
+        android:layout_alignEnd="@+id/blueplayer4"
+        android:layout_alignBottom="@+id/blueplayer4"
+        android:layout_marginStart="33dp"
+        android:layout_marginTop="22dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginBottom="0dp"
+        android:src="@drawable/gunrb"
+        tools:ignore="ContentDescription" />
+    <ImageView
+        android:id="@+id/bg5"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_alignStart="@+id/blueplayer5"
+        android:layout_alignTop="@+id/blueplayer5"
+        android:layout_alignEnd="@+id/blueplayer5"
+        android:layout_alignBottom="@+id/blueplayer5"
+        android:layout_marginStart="33dp"
+        android:layout_marginTop="22dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginBottom="0dp"
+        android:src="@drawable/gunrb"
+        tools:ignore="ContentDescription" />
+
+    <!--Red player side view guns images-->
+    <ImageView
+        android:id="@+id/rg1"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_alignStart="@+id/redplayer1"
+        android:layout_alignTop="@+id/redplayer1"
+        android:layout_alignEnd="@+id/redplayer1"
+        android:layout_alignBottom="@+id/redplayer1"
+        android:layout_marginStart="33dp"
+        android:layout_marginTop="22dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginBottom="0dp"
+        android:src="@drawable/gunrr"
+        tools:ignore="ContentDescription" />
+    <ImageView
+        android:id="@+id/rg2"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_alignStart="@+id/redplayer2"
+        android:layout_alignTop="@+id/redplayer2"
+        android:layout_alignEnd="@+id/redplayer2"
+        android:layout_alignBottom="@+id/redplayer2"
+        android:layout_marginStart="33dp"
+        android:layout_marginTop="22dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginBottom="0dp"
+        android:src="@drawable/gunrr"
+        tools:ignore="ContentDescription" />
+    <ImageView
+        android:id="@+id/rg3"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_alignStart="@+id/redplayer3"
+        android:layout_alignTop="@+id/redplayer3"
+        android:layout_alignEnd="@+id/redplayer3"
+        android:layout_alignBottom="@+id/redplayer3"
+        android:layout_marginStart="33dp"
+        android:layout_marginTop="22dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginBottom="0dp"
+        android:src="@drawable/gunrr"
+        tools:ignore="ContentDescription" />
+    <ImageView
+        android:id="@+id/rg4"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_alignStart="@+id/redplayer4"
+        android:layout_alignTop="@+id/redplayer4"
+        android:layout_alignEnd="@+id/redplayer4"
+        android:layout_alignBottom="@+id/redplayer4"
+        android:layout_marginStart="33dp"
+        android:layout_marginTop="22dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginBottom="0dp"
+        android:src="@drawable/gunrr"
+        tools:ignore="ContentDescription" />
+    <ImageView
+        android:id="@+id/rg5"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_alignStart="@+id/redplayer5"
+        android:layout_alignTop="@+id/redplayer5"
+        android:layout_alignEnd="@+id/redplayer5"
+        android:layout_alignBottom="@+id/redplayer5"
+        android:layout_marginStart="33dp"
+        android:layout_marginTop="22dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginBottom="0dp"
+        android:src="@drawable/gunrr"
+        tools:ignore="ContentDescription" />
 
 
 </RelativeLayout>
