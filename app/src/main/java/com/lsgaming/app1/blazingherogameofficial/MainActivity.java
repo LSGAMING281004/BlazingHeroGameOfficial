@@ -1,7 +1,6 @@
 package com.lsgaming.app1.blazingherogameofficial;
 
 import android.annotation.SuppressLint;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.media.MediaPlayer;
 import android.os.Bundle;
@@ -96,20 +95,22 @@ public class MainActivity extends AppCompatActivity {
                 .setTitle("Exit")
                 .setMessage("Are you sure you want to exit?")
                 .setCancelable(false) // Ensure the dialog cannot be dismissed by tapping outside
-                .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int which) {
-                        mp.stop();
-                        // Exit the activity
-                        finish();
-                    }
+                .setPositiveButton(android.R.string.yes, (dialog, which) -> {
+                    mp.stop();
+                    // Exit the activity
+                    finish();
                 })
-                .setNegativeButton(android.R.string.no, new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int which) {
-                        // Do nothing, just close the dialog
-                        dialog.dismiss();
-                    }
+                .setNegativeButton(android.R.string.no, (dialog, which) -> {
+                    // Do nothing, just close the dialog
+                    dialog.dismiss();
                 })
                 .setIcon(R.drawable.emojipng)
                 .show();
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        mp.pause();
     }
 }

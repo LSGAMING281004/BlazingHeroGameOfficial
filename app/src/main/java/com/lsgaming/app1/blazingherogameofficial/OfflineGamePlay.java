@@ -1,7 +1,6 @@
 package com.lsgaming.app1.blazingherogameofficial;
 
 import android.annotation.SuppressLint;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.GradientDrawable;
@@ -417,70 +416,55 @@ public class OfflineGamePlay extends AppCompatActivity {
         {
             view6.setEnabled(true);
             view6.setBackground(drawable);
-            view6.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    redplace1 = true;
-                    view6.setEnabled(false);
-                    view6.setBackgroundColor(Color.GRAY);
-                    resetBlueRule();
-                }
+            view6.setOnClickListener(view -> {
+                redplace1 = true;
+                view6.setEnabled(false);
+                view6.setBackgroundColor(Color.GRAY);
+                resetBlueRule();
             });
         }
         if(!redplace2)
         {
             view7.setEnabled(true);
             view7.setBackground(drawable);
-            view7.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    redplace2 = true;
-                    view7.setEnabled(false);
-                    view7.setBackgroundColor(Color.GRAY);
-                    resetBlueRule();
-                }
+            view7.setOnClickListener(view -> {
+                redplace2 = true;
+                view7.setEnabled(false);
+                view7.setBackgroundColor(Color.GRAY);
+                resetBlueRule();
             });
         }
         if(!redplace3)
         {
             view8.setEnabled(true);
             view8.setBackground(drawable);
-            view8.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    redplace3 = true;
-                    view8.setEnabled(false);
-                    view8.setBackgroundColor(Color.GRAY);
-                    resetBlueRule();
-                }
+            view8.setOnClickListener(view -> {
+                redplace3 = true;
+                view8.setEnabled(false);
+                view8.setBackgroundColor(Color.GRAY);
+                resetBlueRule();
             });
         }
         if(!redplace4)
         {
             view9.setEnabled(true);
             view9.setBackground(drawable);
-            view9.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    redplace4 = true;
-                    view9.setEnabled(false);
-                    view9.setBackgroundColor(Color.GRAY);
-                    resetBlueRule();
-                }
+            view9.setOnClickListener(view -> {
+                redplace4 = true;
+                view9.setEnabled(false);
+                view9.setBackgroundColor(Color.GRAY);
+                resetBlueRule();
             });
         }
         if(!redplace5)
         {
             view10.setEnabled(true);
             view10.setBackground(drawable);
-            view10.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    redplace5 = true;
-                    view10.setEnabled(false);
-                    view10.setBackgroundColor(Color.GRAY);
-                    resetBlueRule();
-                }
+            view10.setOnClickListener(view -> {
+                redplace5 = true;
+                view10.setEnabled(false);
+                view10.setBackgroundColor(Color.GRAY);
+                resetBlueRule();
             });
         }
     }
@@ -490,70 +474,55 @@ public class OfflineGamePlay extends AppCompatActivity {
         {
             view1.setEnabled(true);
             view1.setBackground(drawable);
-            view1.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    blueplace1 = true;
-                    view1.setEnabled(false);
-                    view1.setBackgroundColor(Color.GRAY);
-                    resetBlueRule();
-                }
+            view1.setOnClickListener(view -> {
+                blueplace1 = true;
+                view1.setEnabled(false);
+                view1.setBackgroundColor(Color.GRAY);
+                resetBlueRule();
             });
         }
         if(!blueplace2)
         {
             view2.setEnabled(true);
             view2.setBackground(drawable);
-            view2.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    blueplace2 = true;
-                    view2.setEnabled(false);
-                    view2.setBackgroundColor(Color.GRAY);
-                    resetBlueRule();
-                }
+            view2.setOnClickListener(view -> {
+                blueplace2 = true;
+                view2.setEnabled(false);
+                view2.setBackgroundColor(Color.GRAY);
+                resetBlueRule();
             });
         }
         if(!blueplace3)
         {
             view3.setEnabled(true);
             view3.setBackground(drawable);
-            view3.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    blueplace3 = true;
-                    view3.setEnabled(false);
-                    view3.setBackgroundColor(Color.GRAY);
-                    resetBlueRule();
-                }
+            view3.setOnClickListener(view -> {
+                blueplace3 = true;
+                view3.setEnabled(false);
+                view3.setBackgroundColor(Color.GRAY);
+                resetBlueRule();
             });
         }
         if(!blueplace4)
         {
             view4.setEnabled(true);
             view4.setBackground(drawable);
-            view4.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    blueplace4 = true;
-                    view4.setEnabled(false);
-                    view4.setBackgroundColor(Color.GRAY);
-                    resetBlueRule();
-                }
+            view4.setOnClickListener(view -> {
+                blueplace4 = true;
+                view4.setEnabled(false);
+                view4.setBackgroundColor(Color.GRAY);
+                resetBlueRule();
             });
         }
         if(!blueplace5)
         {
             view5.setEnabled(true);
             view5.setBackground(drawable);
-            view5.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    blueplace5 = true;
-                    view5.setEnabled(false);
-                    view5.setBackgroundColor(Color.GRAY);
-                    resetBlueRule();
-                }
+            view5.setOnClickListener(view -> {
+                blueplace5 = true;
+                view5.setEnabled(false);
+                view5.setBackgroundColor(Color.GRAY);
+                resetBlueRule();
             });
         }
     }
@@ -562,20 +531,12 @@ public class OfflineGamePlay extends AppCompatActivity {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("Game Over");
         builder.setMessage(winplayer);
-        builder.setPositiveButton("Restart", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                Intent intent = getIntent();
-                finish();
-                startActivity(intent);
-            }
+        builder.setPositiveButton("Restart", (dialog, which) -> {
+            Intent intent = getIntent();
+            finish();
+            startActivity(intent);
         });
-        builder.setNegativeButton("Home", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                finish();
-            }
-        });
+        builder.setNegativeButton("Home", (dialog, which) -> finish());
 
         AlertDialog alertDialog = builder.create();
         alertDialog.setCanceledOnTouchOutside(false);
@@ -593,11 +554,9 @@ public class OfflineGamePlay extends AppCompatActivity {
         new AlertDialog.Builder(this)
                 .setTitle("End Game")
                 .setMessage("Are you sure you want to Exit Gameplay?")
-                .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int which) {
-                        // Exit the activity
-                        OfflineGamePlay.super.onBackPressed();
-                    }
+                .setPositiveButton(android.R.string.yes, (dialog, which) -> {
+                    // Exit the activity
+                    OfflineGamePlay.super.onBackPressed();
                 })
                 .setNegativeButton(android.R.string.no, null)
                 .setIcon(android.R.drawable.ic_dialog_alert)
