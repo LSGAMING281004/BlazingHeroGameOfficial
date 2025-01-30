@@ -5,7 +5,6 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.GradientDrawable;
-import android.media.MediaParser;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.View;
@@ -27,9 +26,10 @@ public class OfflineGamePlay extends AppCompatActivity {
     ImageView book1,book2;
     Random random;
     TextView textView1,textView2,attacktv;
-    int min = 0,max = 5;
+    int min = 1,max = 5;
     int randomNumber;
     int b1=0,b2=0,b3=0,b4=0,b5=0,r1=0,r2=0,r3=0,r4=0,r5=0;
+    String winplayer="";
 
     ImageView bh1,bh2,bh3,bh4,bh5,rh1,rh2,rh3,rh4,rh5;
     ImageView bb1,bb2,bb3,bb4,bb5,rb1,rb2,rb3,rb4,rb5;
@@ -200,7 +200,7 @@ public class OfflineGamePlay extends AppCompatActivity {
 
         drawable = new GradientDrawable();
         drawable.setShape(GradientDrawable.RECTANGLE);
-        drawable.setStroke(5, Color.RED); // Set the outline color and width here
+        drawable.setStroke(5, Color.YELLOW); // Set the outline color and width here
         drawable.setColor(Color.TRANSPARENT);
 
         MediaPlayer mp1 = MediaPlayer.create(this,R.raw.pressx);
@@ -219,9 +219,6 @@ public class OfflineGamePlay extends AppCompatActivity {
                 randomNumber = random.nextInt((max - min) + 1) + min;
                 textView1.setText(String.valueOf(randomNumber));
                 textView2.setText("");
-                if((blueplace1 && blueplace2 && blueplace3 && blueplace4 && blueplace5) || (redplace1 && redplace2 && redplace3 && redplace4 && redplace5))
-                    gameOverAlert();
-
                 setUpBlueside();
             }
         });
@@ -564,7 +561,7 @@ public class OfflineGamePlay extends AppCompatActivity {
     private void gameOverAlert() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("Game Over");
-        builder.setMessage("player win");
+        builder.setMessage(winplayer);
         builder.setPositiveButton("Restart", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
@@ -615,17 +612,36 @@ public class OfflineGamePlay extends AppCompatActivity {
         mediaPlayer.setVolume(0.1f, 0.1f);
         mediaPlayer.start();
 
-        /*view1.setBackgroundResource(R.drawable.blue_bg);
-        view2.setBackgroundResource(R.drawable.blue_bg);
-        view3.setBackgroundResource(R.drawable.blue_bg);
-        view4.setBackgroundResource(R.drawable.blue_bg);
-        view5.setBackgroundResource(R.drawable.blue_bg);
+        if((blueplace1 && blueplace2 && blueplace3 && blueplace4 && blueplace5)) {
+            winplayer="Red Player Win";
+            gameOverAlert();
+        }
+        if((redplace1 && redplace2 && redplace3 && redplace4 && redplace5)){
+            winplayer="Blue Player Win";
+            gameOverAlert();
+        }
 
-        view6.setBackgroundResource(R.drawable.red_bg);
-        view7.setBackgroundResource(R.drawable.red_bg);
-        view8.setBackgroundResource(R.drawable.red_bg);
-        view9.setBackgroundResource(R.drawable.red_bg);
-        view10.setBackgroundResource(R.drawable.red_bg);*/
+        if(!blueplace1)
+            view1.setBackgroundResource(R.drawable.blue_bg);
+        if(!blueplace2)
+            view2.setBackgroundResource(R.drawable.blue_bg);
+        if(!blueplace3)
+            view3.setBackgroundResource(R.drawable.blue_bg);
+        if(!blueplace4)
+            view4.setBackgroundResource(R.drawable.blue_bg);
+        if(!blueplace5)
+            view5.setBackgroundResource(R.drawable.blue_bg);
+
+        if (!redplace1)
+            view6.setBackgroundResource(R.drawable.red_bg);
+        if (!redplace2)
+            view7.setBackgroundResource(R.drawable.red_bg);
+        if (!redplace3)
+            view8.setBackgroundResource(R.drawable.red_bg);
+        if(!redplace4)
+            view9.setBackgroundResource(R.drawable.red_bg);
+        if(!redplace5)
+            view10.setBackgroundResource(R.drawable.red_bg);
 
 
         view1.setEnabled(false);
