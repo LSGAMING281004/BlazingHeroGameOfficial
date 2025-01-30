@@ -1,6 +1,11 @@
 package com.lsgaming.app1.blazingherogameofficial;
 
 import android.annotation.SuppressLint;
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.GradientDrawable;
+import android.media.MediaParser;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.View;
@@ -9,6 +14,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
@@ -32,6 +38,7 @@ public class OfflineGamePlay extends AppCompatActivity {
     ImageView bg1,bg2,bg3,bg4,bg5,rg1,rg2,rg3,rg4,rg5;
     Boolean blueplace1=false,blueplace2=false,blueplace3=false,blueplace4=false,blueplace5=false,redplace1=false,redplace2=false,redplace3=false,redplace4=false,redplace5=false;
 
+    GradientDrawable drawable;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -62,6 +69,17 @@ public class OfflineGamePlay extends AppCompatActivity {
         view8 = findViewById(R.id.redplayer3);
         view9 = findViewById(R.id.redplayer4);
         view10 = findViewById(R.id.redplayer5);
+
+        view1.setEnabled(false);
+        view2.setEnabled(false);
+        view3.setEnabled(false);
+        view4.setEnabled(false);
+        view5.setEnabled(false);
+        view6.setEnabled(false);
+        view7.setEnabled(false);
+        view8.setEnabled(false);
+        view9.setEnabled(false);
+        view10.setEnabled(false);
 
         book1 = findViewById(R.id.blue_book);
         book2 = findViewById(R.id.red_book);
@@ -180,6 +198,11 @@ public class OfflineGamePlay extends AppCompatActivity {
 
         attacktv.setVisibility(View.GONE);
 
+        drawable = new GradientDrawable();
+        drawable.setShape(GradientDrawable.RECTANGLE);
+        drawable.setStroke(5, Color.RED); // Set the outline color and width here
+        drawable.setColor(Color.TRANSPARENT);
+
         MediaPlayer mp1 = MediaPlayer.create(this,R.raw.pressx);
         MediaPlayer mp2 = MediaPlayer.create(this,R.raw.presso);
         mp1.setVolume(0.1f, 0.1f);
@@ -196,6 +219,9 @@ public class OfflineGamePlay extends AppCompatActivity {
                 randomNumber = random.nextInt((max - min) + 1) + min;
                 textView1.setText(String.valueOf(randomNumber));
                 textView2.setText("");
+                if((blueplace1 && blueplace2 && blueplace3 && blueplace4 && blueplace5) || (redplace1 && redplace2 && redplace3 && redplace4 && redplace5))
+                    gameOverAlert();
+
                 setUpBlueside();
             }
         });
@@ -218,7 +244,7 @@ public class OfflineGamePlay extends AppCompatActivity {
 
     public void setUpBlueside()
     {
-        if(randomNumber==1) {
+        if(randomNumber==1 && !blueplace1) {
             bh1.setVisibility(View.VISIBLE);
             if(b1==1)
                 bb1.setVisibility(View.VISIBLE);
@@ -231,9 +257,10 @@ public class OfflineGamePlay extends AppCompatActivity {
                 attacktv.setVisibility(View.VISIBLE);
                 book1.setEnabled(false);
                 book2.setEnabled(false);
+                blueAttackLogic();
             }
             b1++;
-        } else if (randomNumber==2) {
+        } else if (randomNumber==2 && !blueplace2) {
             bh2.setVisibility(View.VISIBLE);
             if(b2==1)
                 bb2.setVisibility(View.VISIBLE);
@@ -246,9 +273,10 @@ public class OfflineGamePlay extends AppCompatActivity {
                 attacktv.setVisibility(View.VISIBLE);
                 book1.setEnabled(false);
                 book2.setEnabled(false);
+                blueAttackLogic();
             }
             b2++;
-        } else if (randomNumber==3) {
+        } else if (randomNumber==3 && !blueplace3) {
             bh3.setVisibility(View.VISIBLE);
             if(b3==1)
                 bb3.setVisibility(View.VISIBLE);
@@ -256,14 +284,15 @@ public class OfflineGamePlay extends AppCompatActivity {
                 bl3.setVisibility(View.VISIBLE);
             if(b3==3)
                 bf3.setVisibility(View.VISIBLE);
-            if(b3==4) {
+            if(b3>=4) {
                 bg3.setVisibility(View.VISIBLE);
                 attacktv.setVisibility(View.VISIBLE);
                 book1.setEnabled(false);
                 book2.setEnabled(false);
+                blueAttackLogic();
             }
             b3++;
-        }else if (randomNumber==4) {
+        }else if (randomNumber==4  && !blueplace4) {
             bh4.setVisibility(View.VISIBLE);
             if(b4==1)
                 bb4.setVisibility(View.VISIBLE);
@@ -271,14 +300,15 @@ public class OfflineGamePlay extends AppCompatActivity {
                 bl4.setVisibility(View.VISIBLE);
             if(b4==3)
                 bf4.setVisibility(View.VISIBLE);
-            if(b4==4) {
+            if(b4>=4) {
                 bg4.setVisibility(View.VISIBLE);
                 attacktv.setVisibility(View.VISIBLE);
                 book1.setEnabled(false);
                 book2.setEnabled(false);
+                blueAttackLogic();
             }
             b4++;
-        }else if (randomNumber==5) {
+        }else if (randomNumber==5 && !blueplace5) {
             bh5.setVisibility(View.VISIBLE);
             if(b5==1)
                 bb5.setVisibility(View.VISIBLE);
@@ -286,11 +316,12 @@ public class OfflineGamePlay extends AppCompatActivity {
                 bl5.setVisibility(View.VISIBLE);
             if(b5==3)
                 bf5.setVisibility(View.VISIBLE);
-            if(b5==4) {
+            if(b5>=4) {
                 bg5.setVisibility(View.VISIBLE);
                 attacktv.setVisibility(View.VISIBLE);
                 book1.setEnabled(false);
                 book2.setEnabled(false);
+                blueAttackLogic();
             }
             b5++;
         }
@@ -298,7 +329,7 @@ public class OfflineGamePlay extends AppCompatActivity {
 
     public void setUpRedside()
     {
-        if(randomNumber==1) {
+        if(randomNumber==1 && !redplace1) {
             rh1.setVisibility(View.VISIBLE);
             if(r1==1)
                 rb1.setVisibility(View.VISIBLE);
@@ -306,15 +337,16 @@ public class OfflineGamePlay extends AppCompatActivity {
                 rl1.setVisibility(View.VISIBLE);
             if(r1==3)
                 rf1.setVisibility(View.VISIBLE);
-            if(r1==4) {
+            if(r1>=4) {
                 rg1.setVisibility(View.VISIBLE);
                 attacktv.setVisibility(View.VISIBLE);
                 book1.setEnabled(false);
                 book2.setEnabled(false);
+                redAttackLogic();
             }
 
             r1++;
-        } else if (randomNumber==2) {
+        } else if (randomNumber==2 && !redplace2) {
             rh2.setVisibility(View.VISIBLE);
             if(r2==1)
                 rb2.setVisibility(View.VISIBLE);
@@ -322,14 +354,15 @@ public class OfflineGamePlay extends AppCompatActivity {
                 rl2.setVisibility(View.VISIBLE);
             if(r2==3)
                 rf2.setVisibility(View.VISIBLE);
-            if(r2==4) {
+            if(r2>=4) {
                 rg2.setVisibility(View.VISIBLE);
                 attacktv.setVisibility(View.VISIBLE);
                 book1.setEnabled(false);
                 book2.setEnabled(false);
+                redAttackLogic();
             }
             r2++;
-        } else if (randomNumber==3) {
+        } else if (randomNumber==3 && !redplace3) {
             rh3.setVisibility(View.VISIBLE);
             if(r3==1)
                 rb3.setVisibility(View.VISIBLE);
@@ -337,14 +370,15 @@ public class OfflineGamePlay extends AppCompatActivity {
                 rl3.setVisibility(View.VISIBLE);
             if(r3==3)
                 rf3.setVisibility(View.VISIBLE);
-            if(r3==4) {
+            if(r3>=4) {
                 rg3.setVisibility(View.VISIBLE);
                 attacktv.setVisibility(View.VISIBLE);
                 book1.setEnabled(false);
                 book2.setEnabled(false);
+                redAttackLogic();
             }
             r3++;
-        }else if (randomNumber==4) {
+        }else if (randomNumber==4 && !redplace4) {
             rh4.setVisibility(View.VISIBLE);
             if(r4==1)
                 rb4.setVisibility(View.VISIBLE);
@@ -352,14 +386,16 @@ public class OfflineGamePlay extends AppCompatActivity {
                 rl4.setVisibility(View.VISIBLE);
             if(r4==3)
                 rf4.setVisibility(View.VISIBLE);
-            if(r4==4) {
+            if(r4>=4) {
                 rg4.setVisibility(View.VISIBLE);
                 attacktv.setVisibility(View.VISIBLE);
                 book1.setEnabled(false);
                 book2.setEnabled(false);
+                redAttackLogic();
+
             }
             r4++;
-        }else if (randomNumber==5) {
+        }else if (randomNumber==5 && !redplace5) {
             rh5.setVisibility(View.VISIBLE);
             if(r5==1)
                 rb5.setVisibility(View.VISIBLE);
@@ -367,14 +403,245 @@ public class OfflineGamePlay extends AppCompatActivity {
                 rl5.setVisibility(View.VISIBLE);
             if(r5==3)
                 rf5.setVisibility(View.VISIBLE);
-            if(r5==4) {
+            if(r5>=4) {
                 rg5.setVisibility(View.VISIBLE);
                 attacktv.setVisibility(View.VISIBLE);
                 book1.setEnabled(false);
                 book2.setEnabled(false);
+                redAttackLogic();
             }
             r5++;
         }
     }
+
+    void blueAttackLogic()
+    {
+        if(!redplace1)
+        {
+            view6.setEnabled(true);
+            view6.setBackground(drawable);
+            view6.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    redplace1 = true;
+                    view6.setEnabled(false);
+                    view6.setBackgroundColor(Color.GRAY);
+                    resetBlueRule();
+                }
+            });
+        }
+        if(!redplace2)
+        {
+            view7.setEnabled(true);
+            view7.setBackground(drawable);
+            view7.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    redplace2 = true;
+                    view7.setEnabled(false);
+                    view7.setBackgroundColor(Color.GRAY);
+                    resetBlueRule();
+                }
+            });
+        }
+        if(!redplace3)
+        {
+            view8.setEnabled(true);
+            view8.setBackground(drawable);
+            view8.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    redplace3 = true;
+                    view8.setEnabled(false);
+                    view8.setBackgroundColor(Color.GRAY);
+                    resetBlueRule();
+                }
+            });
+        }
+        if(!redplace4)
+        {
+            view9.setEnabled(true);
+            view9.setBackground(drawable);
+            view9.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    redplace4 = true;
+                    view9.setEnabled(false);
+                    view9.setBackgroundColor(Color.GRAY);
+                    resetBlueRule();
+                }
+            });
+        }
+        if(!redplace5)
+        {
+            view10.setEnabled(true);
+            view10.setBackground(drawable);
+            view10.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    redplace5 = true;
+                    view10.setEnabled(false);
+                    view10.setBackgroundColor(Color.GRAY);
+                    resetBlueRule();
+                }
+            });
+        }
+    }
+    void redAttackLogic()
+    {
+        if(!blueplace1)
+        {
+            view1.setEnabled(true);
+            view1.setBackground(drawable);
+            view1.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    blueplace1 = true;
+                    view1.setEnabled(false);
+                    view1.setBackgroundColor(Color.GRAY);
+                    resetBlueRule();
+                }
+            });
+        }
+        if(!blueplace2)
+        {
+            view2.setEnabled(true);
+            view2.setBackground(drawable);
+            view2.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    blueplace2 = true;
+                    view2.setEnabled(false);
+                    view2.setBackgroundColor(Color.GRAY);
+                    resetBlueRule();
+                }
+            });
+        }
+        if(!blueplace3)
+        {
+            view3.setEnabled(true);
+            view3.setBackground(drawable);
+            view3.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    blueplace3 = true;
+                    view3.setEnabled(false);
+                    view3.setBackgroundColor(Color.GRAY);
+                    resetBlueRule();
+                }
+            });
+        }
+        if(!blueplace4)
+        {
+            view4.setEnabled(true);
+            view4.setBackground(drawable);
+            view4.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    blueplace4 = true;
+                    view4.setEnabled(false);
+                    view4.setBackgroundColor(Color.GRAY);
+                    resetBlueRule();
+                }
+            });
+        }
+        if(!blueplace5)
+        {
+            view5.setEnabled(true);
+            view5.setBackground(drawable);
+            view5.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    blueplace5 = true;
+                    view5.setEnabled(false);
+                    view5.setBackgroundColor(Color.GRAY);
+                    resetBlueRule();
+                }
+            });
+        }
+    }
+
+    private void gameOverAlert() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Game Over");
+        builder.setMessage("player win");
+        builder.setPositiveButton("Restart", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                Intent intent = getIntent();
+                finish();
+                startActivity(intent);
+            }
+        });
+        builder.setNegativeButton("Home", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                finish();
+            }
+        });
+
+        AlertDialog alertDialog = builder.create();
+        alertDialog.setCanceledOnTouchOutside(false);
+        alertDialog.show();
+    }
+
+    //Back button pressed
+    @SuppressLint("MissingSuperCall")
+    @Override
+    public void onBackPressed() {
+        MediaPlayer mpq = MediaPlayer.create(this,R.raw.quite);
+        mpq.setVolume(0.1f, 0.1f);
+        mpq.start();
+        // Create a dialog to confirm exit
+        new AlertDialog.Builder(this)
+                .setTitle("End Game")
+                .setMessage("Are you sure you want to Exit Gameplay?")
+                .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        // Exit the activity
+                        OfflineGamePlay.super.onBackPressed();
+                    }
+                })
+                .setNegativeButton(android.R.string.no, null)
+                .setIcon(android.R.drawable.ic_dialog_alert)
+                .show();
+    }
+
+
+
+    void resetBlueRule()
+    {
+        MediaPlayer mediaPlayer = MediaPlayer.create(this,R.raw.gunshot);
+        mediaPlayer.setVolume(0.1f, 0.1f);
+        mediaPlayer.start();
+
+        /*view1.setBackgroundResource(R.drawable.blue_bg);
+        view2.setBackgroundResource(R.drawable.blue_bg);
+        view3.setBackgroundResource(R.drawable.blue_bg);
+        view4.setBackgroundResource(R.drawable.blue_bg);
+        view5.setBackgroundResource(R.drawable.blue_bg);
+
+        view6.setBackgroundResource(R.drawable.red_bg);
+        view7.setBackgroundResource(R.drawable.red_bg);
+        view8.setBackgroundResource(R.drawable.red_bg);
+        view9.setBackgroundResource(R.drawable.red_bg);
+        view10.setBackgroundResource(R.drawable.red_bg);*/
+
+
+        view1.setEnabled(false);
+        view2.setEnabled(false);
+        view3.setEnabled(false);
+        view4.setEnabled(false);
+        view5.setEnabled(false);
+        view6.setEnabled(false);
+        view7.setEnabled(false);
+        view8.setEnabled(false);
+        view9.setEnabled(false);
+        view10.setEnabled(false);
+        attacktv.setVisibility(View.GONE);
+        book1.setEnabled(true);
+        book2.setEnabled(true);
+    }
+
 
 }

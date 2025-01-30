@@ -1,5 +1,6 @@
 package com.lsgaming.app1.blazingherogameofficial;
 
+import android.annotation.SuppressLint;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.media.MediaPlayer;
@@ -19,10 +20,10 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 public class MainActivity extends AppCompatActivity {
-    AlertDialog alertDialog;
 
     Button play_offline;
     Toolbar toolbar;
+    MediaPlayer mp,mediaPlayer,mpq;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,8 +35,9 @@ public class MainActivity extends AppCompatActivity {
             return insets;
         });
 
-        MediaPlayer mp = MediaPlayer.create(this,R.raw.pinksoldiers);
-        MediaPlayer mediaPlayer = MediaPlayer.create(this,R.raw.buttonclick);
+        mp = MediaPlayer.create(this,R.raw.pinksoldiers);
+        mp.setLooping(true);
+        mediaPlayer = MediaPlayer.create(this,R.raw.buttonclick);
         mp.setVolume(0.1f, 0.1f);
         mediaPlayer.setVolume(0.1f,0.1f);
         mp.start();
@@ -50,10 +52,19 @@ public class MainActivity extends AppCompatActivity {
         play_offline = findViewById(R.id.play_offline);
         play_offline.setOnClickListener(v -> {
             mediaPlayer.start();
+            mp.pause();
             startActivity(new Intent(this, OfflineGamePlay.class));
         });
 
 
+    }
+    @Override
+    protected void onStart() {
+        super.onStart();
+        // Start or resume playback
+        if (mp != null) {
+            mp.start();
+        }
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -69,34 +80,36 @@ public class MainActivity extends AppCompatActivity {
         {
             startActivity(new Intent(this, About.class));
         }
-        if(id == R.id.item4)
-        {
-            showAlert();
-        }
+
         return super.onOptionsItemSelected(item);
     }
 
-    // Quit geme Alert dialog method
-    private void showAlert() {
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle("Confirmation to quit");
-        builder.setMessage("Sure you want to quit?");
-        builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                // Do something when OK button is clicked
-                finish();
-            }
-        });
-        builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                // Do something when Cancel button is clicked
-            }
-        });
 
-        AlertDialog alertDialog = builder.create();
-        alertDialog.show();
+    @SuppressLint("MissingSuperCall")
+    @Override
+    public void onBackPressed() {
+        // Create a dialog to confirm exit
+        mpq = MediaPlayer.create(this,R.raw.quite);
+        mpq.setVolume(0.1f, 0.1f);
+        mpq.start();
+        new AlertDialog.Builder(this)
+                .setTitle("Exit")
+                .setMessage("Are you sure you want to exit?")
+                .setCancelable(false) // Ensure the dialog cannot be dismissed by tapping outside
+                .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        mp.stop();
+                        // Exit the activity
+                        finish();
+                    }
+                })
+                .setNegativeButton(android.R.string.no, new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        // Do nothing, just close the dialog
+                        dialog.dismiss();
+                    }
+                })
+                .setIcon(R.drawable.emojipng)
+                .show();
     }
-
 }
