@@ -8,7 +8,6 @@ import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
@@ -24,9 +23,9 @@ public class OfflineGamePlay extends AppCompatActivity {
     View view1,view2,view3,view4,view5,view6,view7,view8,view9,view10;
     ImageView book1,book2;
     Random random;
-    TextView textView1,textView2,attacktv;
+    TextView textView1,textView2,attacktv,blue_header,red_header;
     int min = 1,max = 5;
-    int randomNumber;
+    int randomNumber,blue_kills=0,red_kills=0;
     int b1=0,b2=0,b3=0,b4=0,b5=0,r1=0,r2=0,r3=0,r4=0,r5=0;
     String winplayer="";
 
@@ -48,14 +47,13 @@ public class OfflineGamePlay extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
-
-        RelativeLayout relativeLayout = findViewById(R.id.main);
-
         random = new Random();
 
         textView1 = findViewById(R.id.blue_tv);
         textView2 = findViewById(R.id.red_tv);
         attacktv = findViewById(R.id.attackview);
+        blue_header = findViewById(R.id.blue_header);
+        red_header = findViewById(R.id.red_header);
 
         view1 = findViewById(R.id.blueplayer1);
         view2 = findViewById(R.id.blueplayer2);
@@ -214,7 +212,8 @@ public class OfflineGamePlay extends AppCompatActivity {
                 mp1.start();
                 book1.setVisibility(View.GONE);
                 book2.setVisibility(View.VISIBLE);
-                relativeLayout.setBackground(getResources().getDrawable(R.drawable.red_bg));
+                red_header.setBackgroundColor(Color.RED);
+                blue_header.setBackgroundColor(Color.TRANSPARENT);
                 randomNumber = random.nextInt((max - min) + 1) + min;
                 textView1.setText(String.valueOf(randomNumber));
                 textView2.setText("");
@@ -228,7 +227,8 @@ public class OfflineGamePlay extends AppCompatActivity {
                 mp2.start();
                 book2.setVisibility(View.GONE);
                 book1.setVisibility(View.VISIBLE);
-                relativeLayout.setBackground(getResources().getDrawable(R.drawable.blue_bg));
+                blue_header.setBackgroundColor(Color.BLUE);
+                red_header.setBackgroundColor(Color.TRANSPARENT);
                 randomNumber = random.nextInt((max - min) + 1) + min;
                 textView2.setText(String.valueOf(randomNumber));
                 textView1.setText("");
@@ -420,7 +420,9 @@ public class OfflineGamePlay extends AppCompatActivity {
                 redplace1 = true;
                 view6.setEnabled(false);
                 view6.setBackgroundColor(Color.GRAY);
+                blue_kills++;
                 resetBlueRule();
+                killCount();
             });
         }
         if(!redplace2)
@@ -431,7 +433,9 @@ public class OfflineGamePlay extends AppCompatActivity {
                 redplace2 = true;
                 view7.setEnabled(false);
                 view7.setBackgroundColor(Color.GRAY);
+                blue_kills++;
                 resetBlueRule();
+                killCount();
             });
         }
         if(!redplace3)
@@ -442,7 +446,9 @@ public class OfflineGamePlay extends AppCompatActivity {
                 redplace3 = true;
                 view8.setEnabled(false);
                 view8.setBackgroundColor(Color.GRAY);
+                blue_kills++;
                 resetBlueRule();
+                killCount();
             });
         }
         if(!redplace4)
@@ -453,7 +459,9 @@ public class OfflineGamePlay extends AppCompatActivity {
                 redplace4 = true;
                 view9.setEnabled(false);
                 view9.setBackgroundColor(Color.GRAY);
+                blue_kills++;
                 resetBlueRule();
+                killCount();
             });
         }
         if(!redplace5)
@@ -464,7 +472,9 @@ public class OfflineGamePlay extends AppCompatActivity {
                 redplace5 = true;
                 view10.setEnabled(false);
                 view10.setBackgroundColor(Color.GRAY);
+                blue_kills++;
                 resetBlueRule();
+                killCount();
             });
         }
     }
@@ -478,7 +488,9 @@ public class OfflineGamePlay extends AppCompatActivity {
                 blueplace1 = true;
                 view1.setEnabled(false);
                 view1.setBackgroundColor(Color.GRAY);
+                red_kills++;
                 resetBlueRule();
+                killCount();
             });
         }
         if(!blueplace2)
@@ -489,7 +501,9 @@ public class OfflineGamePlay extends AppCompatActivity {
                 blueplace2 = true;
                 view2.setEnabled(false);
                 view2.setBackgroundColor(Color.GRAY);
+                red_kills++;
                 resetBlueRule();
+                killCount();
             });
         }
         if(!blueplace3)
@@ -500,7 +514,9 @@ public class OfflineGamePlay extends AppCompatActivity {
                 blueplace3 = true;
                 view3.setEnabled(false);
                 view3.setBackgroundColor(Color.GRAY);
+                red_kills++;
                 resetBlueRule();
+                killCount();
             });
         }
         if(!blueplace4)
@@ -511,7 +527,9 @@ public class OfflineGamePlay extends AppCompatActivity {
                 blueplace4 = true;
                 view4.setEnabled(false);
                 view4.setBackgroundColor(Color.GRAY);
+                red_kills++;
                 resetBlueRule();
+                killCount();
             });
         }
         if(!blueplace5)
@@ -522,7 +540,9 @@ public class OfflineGamePlay extends AppCompatActivity {
                 blueplace5 = true;
                 view5.setEnabled(false);
                 view5.setBackgroundColor(Color.GRAY);
+                red_kills++;
                 resetBlueRule();
+                killCount();
             });
         }
     }
@@ -618,5 +638,10 @@ public class OfflineGamePlay extends AppCompatActivity {
         book2.setEnabled(true);
     }
 
+    void killCount()
+    {
+        blue_header.setText("Kill:"+blue_kills);
+        red_header.setText("Kill:"+red_kills);
+    }
 
 }

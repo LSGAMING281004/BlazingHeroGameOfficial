@@ -20,7 +20,7 @@ import androidx.core.view.WindowInsetsCompat;
 
 public class MainActivity extends AppCompatActivity {
 
-    Button play_offline;
+    Button play_offline,play_bot;
     Toolbar toolbar;
     MediaPlayer mp,mediaPlayer,mpq;
     @Override
@@ -75,11 +75,8 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         int id = item.getItemId();
-        if(id == R.id.item3)
-        {
+        if(id == R.id.item)
             startActivity(new Intent(this, About.class));
-        }
-
         return super.onOptionsItemSelected(item);
     }
 

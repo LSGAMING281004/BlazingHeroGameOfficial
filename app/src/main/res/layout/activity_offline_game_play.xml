@@ -10,13 +10,18 @@
     <!--This is blue side background view-->
 
 
-    <View
+    <TextView
         android:id="@+id/blue_header"
         android:layout_width="200dp"
         android:layout_height="40dp"
+        android:text="@string/kills"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        android:fontFamily="sans-serif-condensed"
+        android:textSize="20sp"
+        android:textAlignment="center"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_gravity="top"
         android:layout_marginStart="0dp"
         android:layout_marginTop="0dp"/>
 
@@ -63,13 +68,18 @@
         />
 
     <!--This is red side background view-->
-    <View
+    <TextView
         android:id="@+id/red_header"
         android:layout_width="200dp"
         android:layout_height="40dp"
+        android:text="@string/kills"
+        android:textSize="20sp"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        android:fontFamily="sans-serif-condensed"
+        android:textAlignment="center"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
-        android:layout_gravity="top"
         android:layout_marginStart="1dp"
         android:layout_marginTop="0dp"
         android:layout_marginEnd="0dp" />
@@ -134,7 +144,8 @@
         android:layout_marginBottom="1dp"
         android:importantForAccessibility="no"
         android:src="@drawable/blue_book"
-        tools:ignore="ImageContrastCheck" />
+        tools:ignore="ImageContrastCheck"
+        />
 
     <ImageView
         android:id="@+id/red_book"
@@ -154,29 +165,24 @@
         android:id="@+id/blue_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/blueplayer5"
-        android:layout_alignParentBottom="true"
-        android:layout_marginTop="37dp"
-        android:layout_marginStart="30dp"
-        android:layout_marginBottom="18dp"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="20dp"
         android:text="@string/blue_number"
         android:textColor="@color/black"
-        android:textSize="20sp"
+        android:background="#00D0CB"
+        android:textSize="25sp"
         android:textStyle="bold" />
 
     <TextView
         android:id="@+id/red_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/redplayer5"
         android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginTop="37dp"
-        android:layout_marginEnd="30dp"
-        android:layout_marginBottom="18dp"
+        android:layout_marginEnd="20dp"
         android:text="@string/red_number"
+        android:background="#FF2F2F"
         android:textColor="@color/black"
-        android:textSize="20sp"
+        android:textSize="25sp"
         android:textStyle="bold" />
 
     <!--Blue player side view head images-->
