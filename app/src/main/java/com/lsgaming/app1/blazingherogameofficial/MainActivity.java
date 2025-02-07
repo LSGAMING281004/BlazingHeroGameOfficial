@@ -20,7 +20,7 @@ import androidx.core.view.WindowInsetsCompat;
 
 public class MainActivity extends AppCompatActivity {
 
-    Button play_offline,play_bot;
+    Button play_offline;
     Toolbar toolbar;
     MediaPlayer mp,mediaPlayer,mpq;
     @Override
